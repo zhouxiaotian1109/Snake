@@ -66,5 +66,6 @@
 	<modules>
 		<module>snakefuzion-web</module>
     <module>snakefuzion-service</module>
+    <module>snakefuzion-service-api</module>
   </modules>
 </project>

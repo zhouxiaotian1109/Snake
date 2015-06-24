@@ -8,12 +8,9 @@
 		<artifactId>snakefuzion</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>snakefuzion-web</artifactId>
-	<packaging>war</packaging>
-	<name>snakefuzion-web Maven Webapp</name>
+	<artifactId>snakefuzion-service-api</artifactId>
+	<name>snakefuzion-service-api</name>
+	<url>http://maven.apache.org</url>
 	<dependencies>
 	</dependencies>
-	<build>
-		<finalName>sfweb</finalName>
-	</build>
 </project>

@@ -1,5 +1,10 @@
 package net.wicp.longshasha.snake.dao;
 
+import java.util.List;
+import java.util.Map;
+
+import net.wicp.longshasha.snake.service.entity.SfUser;
+
 import org.springframework.stereotype.Repository;
 
 /**
@@ -9,5 +14,6 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface IUserDao {
-	
+	Integer insertUser(SfUser user);
+	List<SfUser> queryUsers(Map<String, Object> condition);
 }

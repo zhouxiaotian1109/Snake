@@ -11,26 +11,12 @@ public class SfUser implements Serializable {
 
 	private static final long serialVersionUID = -8589478431757851720L;
 
-	private int userId;
+	private Integer userId;
 	private String userAccount;
 	private String userPwd;
 	private String userNickName;
 	private String userName;
-
-	/**
-	 * @return the userId
-	 */
-	public int getUserId() {
-		return userId;
-	}
-
-	/**
-	 * @param userId
-	 *            the userId to set
-	 */
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
+ 
 
 	/**
 	 * @return the userAccount
@@ -90,6 +76,20 @@ public class SfUser implements Serializable {
 	 */
 	public void setUserName(String userName) {
 		this.userName = userName;
+	}
+
+	/**
+	 * @return the userId
+	 */
+	public Integer getUserId() {
+		return userId;
+	}
+
+	/**
+	 * @param userId the userId to set
+	 */
+	public void setUserId(Integer userId) {
+		this.userId = userId;
 	}
 
 }

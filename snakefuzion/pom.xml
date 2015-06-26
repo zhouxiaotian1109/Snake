@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-
 	<groupId>net.wicp.longshasha</groupId>
 	<artifactId>snakefuzion</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
@@ -12,23 +11,25 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.build.scope>provided</project.build.scope><!-- compile, provided, 
-			runtime, test, system -->
+		<project.build.scope>provided</project.build.scope><!-- compile, provided, runtime, test, system -->
 		<project.build.springVersion>3.1.1.RELEASE</project.build.springVersion>
 	</properties>
 
 	<dependencies>
-		<!-- servlet -->
+		<!-- servlet 作用于设为provided 仅用于开发阶段编译不报错 防止发布时打包到lib下与tomcat里面的冲突 -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
 			<version>2.5</version>
+			<scope>${project.build.scope}</scope>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet.jsp</groupId>
 			<artifactId>jsp-api</artifactId>
 			<version>2.1</version>
+			<scope>${project.build.scope}</scope>
 		</dependency>
+		<!-- rpc远程方法调用 -->
 		<dependency>
 			<groupId>org.phprpc</groupId>
 			<artifactId>phprpc</artifactId>
@@ -40,6 +41,41 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${project.build.springVersion}</version>
 		</dependency>
+		<!-- AOP -->
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>1.5.4</version>
+			<scope>${project.build.scope}</scope>
+		</dependency>
+		<!-- mysql驱动 -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>3.1.11</version>
+		</dependency>
+		<!-- junit单元测试 -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<!-- <scope>test</scope> -->
+		</dependency>
+		<!-- spring test 集成spring测试 -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${project.build.springVersion}</version>
+			<!-- <scope>test</scope> -->
+		</dependency>
+		<!-- 日志相关 slf4j,log4j -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.6.1</version>
+			<scope>${project.build.scope}</scope>
+		</dependency>
+		<!-- <dependency> <groupId>log4j</groupId> <artifactId>log4j</artifactId> <version>1.2.16</version> </dependency> -->
 	</dependencies>
 
 	<build>
@@ -59,13 +95,21 @@
 						<target>1.6</target>
 					</configuration>
 				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>2.12.4</version>
+					<configuration>
+						<skip>true</skip>
+					</configuration>
+				</plugin>
 			</plugins>
 		</pluginManagement>
 	</build>
 
 	<modules>
 		<module>snakefuzion-web</module>
-    <module>snakefuzion-service</module>
-    <module>snakefuzion-service-api</module>
-  </modules>
+		<module>snakefuzion-service</module>
+		<module>snakefuzion-service-api</module>
+	</modules>
 </project>

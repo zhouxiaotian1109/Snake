@@ -22,7 +22,7 @@
 	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations">
 			<list>
-				<!-- <value>file:${catalina.home}/tomcat_config/db/jdbc.properties</value> -->
+				<!-- <value>file:${catalina.home}/properties/db/jdbc.properties</value> -->
 				<value>classpath:/properties/db/jdbc.properties</value>
 			</list>
 		</property>
@@ -79,7 +79,7 @@
 
 	<!-- 配置哪些类的方法需要进行事务管理 -->
 	<aop:config>
-		<aop:pointcut id="allManagerMethod" expression="execution(* com.olymtech.cp.weixin.manage.service.*.*(..))" />
+		<aop:pointcut id="allManagerMethod" expression="execution(* net.wicp.longshasha.snake.service.*.*(..))" />
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="allManagerMethod" />
 	</aop:config>
 

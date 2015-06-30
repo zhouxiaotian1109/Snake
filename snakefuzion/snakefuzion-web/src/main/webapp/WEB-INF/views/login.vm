@@ -1,0 +1,19 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>登录页面</title>
+
+</head>
+<body>
+	<h2>this is login page</h2>
+	<span style="color:red">$!{error}</span>
+	<form action="../userlogin/login.ctrl" method="post">
+		<input type="text" name="name" value="$!{userInfo.name}" /><br/>
+		<input type="password" name="pwd" value="$!{userInfo.pwd}" /><br/>
+		<input type="checkbox" name="remember"   />记住密码&nbsp;&nbsp;<input type="checkbox" name="autologin" />自动登录<br/>
+		<input type="reset" value="重置" />&nbsp;&nbsp;
+		<input type="submit" value="登录" />
+		
+	</form>
+</body>
+</html>

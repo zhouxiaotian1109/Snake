@@ -41,6 +41,13 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${project.build.springVersion}</version>
 		</dependency>
+		<!-- json工具jackson -->
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.9.13</version>
+			<scope>${project.build.scope}</scope>
+		</dependency>
 		<!-- AOP -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
@@ -75,6 +82,13 @@
 			<version>1.6.1</version>
 			<scope>${project.build.scope}</scope>
 		</dependency>
+		<!-- XML解析 -->
+		<dependency>
+			<groupId>dom4j</groupId>
+			<artifactId>dom4j</artifactId>
+			<version>1.6.1</version>
+			<scope>${project.build.scope}</scope>
+		</dependency>
 		<!-- json工具 -->
 		<dependency>
 			<groupId>org.nutz</groupId>
@@ -82,6 +96,41 @@
 			<version>1.a.32</version>
 		</dependency>
 		<!-- <dependency> <groupId>log4j</groupId> <artifactId>log4j</artifactId> <version>1.2.16</version> </dependency> -->
+		<!-- java模板引擎velocity -->
+		<dependency>
+			<groupId>org.apache.velocity</groupId>
+			<artifactId>velocity</artifactId>
+			<version>1.7</version>
+			<scope>${project.build.scope}</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.velocity</groupId>
+			<artifactId>velocity-tools</artifactId>
+			<version>2.0</version>
+			<scope>${project.build.scope}</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>oro</groupId>
+					<artifactId>oro</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>sslext</groupId>
+					<artifactId>sslext</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.struts</groupId>
+					<artifactId>struts-core</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.struts</groupId>
+					<artifactId>struts-tiles</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.struts</groupId>
+					<artifactId>struts-taglib</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
 	</dependencies>
 
 	<build>

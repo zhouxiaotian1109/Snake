@@ -16,7 +16,22 @@ public class SfUser implements Serializable {
 	private String userPwd;
 	private String userNickName;
 	private String userName;
+	private String userRole;
+	
  
+	/**
+	 * @return the userRole
+	 */
+	public String getUserRole() {
+		return userRole;
+	}
+
+	/**
+	 * @param userRole the userRole to set
+	 */
+	public void setUserRole(String userRole) {
+		this.userRole = userRole;
+	}
 
 	/**
 	 * @return the userAccount

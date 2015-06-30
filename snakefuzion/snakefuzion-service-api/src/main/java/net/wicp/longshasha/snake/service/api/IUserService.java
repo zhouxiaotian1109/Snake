@@ -3,7 +3,9 @@ package net.wicp.longshasha.snake.service.api;
 import java.util.List;
 import java.util.Map;
 
+import net.wicp.longshasha.snake.service.entity.SfAuth;
 import net.wicp.longshasha.snake.service.entity.SfUser;
+import net.wicp.longshasha.snake.service.entity.SfUserAndAuthsModel;
 
 /**
  * @project snakefuzion-service-api
@@ -17,4 +19,10 @@ public interface IUserService {
 	List<SfUser> queryUsersByExample(SfUser user);
 
 	List<SfUser> queryUsersByCondition(Map<String, Object> condition);
+
+	Integer insertUsersBatch(List<SfUser> users);
+
+	Integer insertAuthsBatch(List<SfAuth> auths);
+
+	Integer insertUserAndAuths(SfUserAndAuthsModel model);
 }

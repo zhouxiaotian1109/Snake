@@ -6,11 +6,15 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
-import org.springframework.stereotype.Service;
-
 import net.wicp.longshasha.snake.dao.IUserDao;
 import net.wicp.longshasha.snake.service.api.IUserService;
+import net.wicp.longshasha.snake.service.entity.SfAuth;
 import net.wicp.longshasha.snake.service.entity.SfUser;
+import net.wicp.longshasha.snake.service.entity.SfUserAndAuthsModel;
+import net.wicp.longshasha.snake.service.entity.enums.RoleEnum;
+
+import org.nutz.json.Json;
+import org.springframework.stereotype.Service;
 
 /**
  * @project snakefuzion-service
@@ -29,8 +33,8 @@ public class UserServiceImpl implements IUserService {
 			example.setUserAccount(user.getUserAccount());
 		}
 		List<SfUser> users = queryUsersByExample(example);
-		if (users != null && users.size() > 0){
-			return -2;//已存在
+		if (users != null && users.size() > 0) {
+			return -2;// 已存在
 		}
 		return iUserDao.insertUser(user);
 	}
@@ -51,6 +55,45 @@ public class UserServiceImpl implements IUserService {
 	@Override
 	public List<SfUser> queryUsersByCondition(Map<String, Object> condition) {
 		return iUserDao.queryUsers(condition);
+	}
+
+	@Override
+	public Integer insertUsersBatch(List<SfUser> users) {
+
+		return iUserDao.insertUsersBatch(users);
+	}
+
+	@Override
+	public Integer insertAuthsBatch(List<SfAuth> auths) {
+
+		return iUserDao.insertAuthsBatch(auths);
+	}
+
+	@Override
+	public Integer insertUserAndAuths(SfUserAndAuthsModel model) {
+		SfUser user = model.getUser();
+		List<SfAuth> auths = model.getAuths();
+		int count = 0;
+		for (SfAuth sfAuth : auths) {
+			if ("是".equals(sfAuth.getAuthDiscribe())) {
+				count++;
+			}
+		}
+
+		if (count == 0) {
+			user.setUserRole(RoleEnum.Normal.getName());
+		} else if (count == auths.size()) {
+			user.setUserRole(RoleEnum.SuperAdmin.getName());
+		} else {
+			user.setUserRole(RoleEnum.Admin.getName());
+		}
+
+		System.out.println("user:" + Json.toJson(user));
+		System.out.println("auths" + Json.toJson(auths));
+		System.out.println(this.insertUser(user));
+		System.out.println(iUserDao.insertAuthsBatch(auths));
+
+		return 1;
 	}
 
 }

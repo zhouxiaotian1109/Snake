@@ -8,9 +8,21 @@
 	</resultMap>
 	<insert id="insertUser" parameterType="SfUser">
 		insert into sf_user
-		(userId,userAccount,userPwd,userNickName,userName)
+		(userId,userAccount,userPwd,userNickName,userName,userRole)
 		values
-		(null,#{userAccount},#{userPwd},#{userNickName},#{userName})
+		(null,#{userAccount},#{userPwd},#{userNickName},#{userName},#{userRole})
+	</insert>
+	<insert id="insertAuthsBatch" parameterType="list">
+		insert into sf_auth
+		(authId,authName,authDiscribe)
+		values
+		<foreach collection="list" item="auth" separator=",">
+			(
+			null,
+			#{auth.authName},
+			#{auth.authDiscribe}
+			)
+		</foreach>
 	</insert>
 	<select id="queryUsers" parameterType="Map" resultMap="userMap">
 		select

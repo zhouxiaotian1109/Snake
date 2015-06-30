@@ -75,6 +75,12 @@
 			<version>1.6.1</version>
 			<scope>${project.build.scope}</scope>
 		</dependency>
+		<!-- json工具 -->
+		<dependency>
+			<groupId>org.nutz</groupId>
+			<artifactId>nutz</artifactId>
+			<version>1.a.32</version>
+		</dependency>
 		<!-- <dependency> <groupId>log4j</groupId> <artifactId>log4j</artifactId> <version>1.2.16</version> </dependency> -->
 	</dependencies>
 

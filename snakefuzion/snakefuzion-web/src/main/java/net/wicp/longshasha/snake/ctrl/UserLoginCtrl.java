@@ -108,4 +108,10 @@ public class UserLoginCtrl {
 		}
 		return mav;
 	}
+	/**
+	 * 
+	 */
+	public UserLoginCtrl() {
+		//仅用于测试gitflow工作流
+	}
 }
